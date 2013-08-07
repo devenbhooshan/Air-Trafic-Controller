@@ -203,14 +203,12 @@ public class GUI extends JPanel implements MouseListener{
 		float y=planes.y;
 		float h=screen_width/2;
 		float k=screen_height/2;
-		float tan_theeta;
-		if(x>h && y<k)
-			tan_theeta=((k-y)/(h-x));
-		else if(x<h && y<k)
-			tan_theeta=180+((k-y)/(h-x));
+		float tan_theeta=((k-y)/(h-x));
+		double theeta;
+		if(x<h)
+			theeta= Math.toDegrees(Math.atan(tan_theeta)) + 180;
+		else theeta=Math.toDegrees(Math.atan(tan_theeta));
 		
-		else tan_theeta=-1*(((k-y)/(h-x)));
-		double theeta=Math.toDegrees(Math.atan(tan_theeta));
 		planes.theta=theeta;
 		}
 		else {
